@@ -40,7 +40,24 @@ h3 {
 .row, .header { clear: left; font-size: 12px; line-height: 18px; height: 18px; }
 .row:nth-child(odd) { background: rgba(0,0,0,0.05); }
 .header { font-weight: bold; }
+/*
 .cell { float: left; overflow: hidden; white-space: nowrap; width: 100px; height: 18px; }
+*/
+.cell{
+  position: absolute;
+  border: 1px solid transparent;
+  border-right: 1px dotted silver;
+  border-bottom-color: silver;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+  z-index: 1;
+  padding: 1px 2px 2px 1px;
+  margin: 0;
+  white-space: nowrap;
+  cursor: default;
+}
 .col-0 { width: 180px; }
 
 .float {
