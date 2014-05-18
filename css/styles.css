@@ -43,7 +43,7 @@ h3 {
 /*
 .cell { float: left; overflow: hidden; white-space: nowrap; width: 100px; height: 18px; }
 */
-.cell{ float:right;
+.cell{ float:left;
   border: 1px solid transparent;
   border-right: 1px dotted silver;
   border-bottom-color: silver;
