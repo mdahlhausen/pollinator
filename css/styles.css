@@ -43,16 +43,14 @@ h3 {
 /*
 .cell { float: left; overflow: hidden; white-space: nowrap; width: 100px; height: 18px; }
 */
-.cell{
-  position: absolute;
+.cell{ float:right;
   border: 1px solid transparent;
   border-right: 1px dotted silver;
   border-bottom-color: silver;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
   vertical-align: middle;
-  z-index: 1;
+  width: 100px; height: 18px;
   padding: 1px 2px 2px 1px;
   margin: 0;
   white-space: nowrap;
