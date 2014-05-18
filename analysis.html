@@ -21,9 +21,9 @@
 <div class="fluid-container">
     <nav class="navbar navbar-default" role="navigation">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="./index">About</a></li>
+                    <li><a href="./index">About</a></li>
                     <li><a href="./team">Team</a></li>
-                    <li><a href="./analysis">Analysis</a></li>
+                    <li class="active"><a href="./analysis">Analysis</a></li>
                     <li><a href="http://core.thorntontomasetti.com/aec-technology-symposium-2014/">AEC Hackathon</a></li>
                 </ul>
     </nav> <!--END NAV BAR-->
@@ -62,7 +62,7 @@
       // create data table, row hover highlighting
       var grid = d3.divgrid();
       d3.select("#grid")
-        .datum(data.slice(0,20))
+        .datum(data.slice(0,10))
         .call(grid)
         .selectAll(".row")
         .on({
