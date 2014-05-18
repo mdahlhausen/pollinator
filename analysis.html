@@ -7,8 +7,6 @@
 <link href="./css/bootstrap/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
 <link href="./css/d3.parcoords.css" media="all" rel="stylesheet" type="text/css" />
 <link href="./css/styles.css" media="all" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="./css/d3.parcoords.css">
-<link rel="stylesheet" type="text/css" href="./css/styles.css">
 <script src="./js/jquery-2.1.1.js" type="text/javascript"></script>
 <script src="./js/bootstrap.js" type="text/javascript"></script>
 <script src="./js/bootstrap.min.js" type="text/javascript"></script>
@@ -22,70 +20,68 @@
 <body>
 <div class="fluid-container">
     <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="collapse nav-collapse">
                 <ul class="nav navbar-nav">
-                
-                <li><a href="./index">About</a></li>
-                
-                <li class="active"><a href="./team">Team</a></li>
-                
-                <li class="dropdown">
-                    <a href="analyses" class="dropdown-toggle" data-toggle="dropdown">Analysis <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./analysis">Example 1</a></li>
-                        <li><a href="./table">Example 2</a></li>
-                    </ul>
-                </li>
-                
-                <li><a href="http://core.thorntontomasetti.com/aec-technology-symposium-2014/">AEC Hackathon</a></li>
-                
+                    <li class="active"><a href="./index">About</a></li>
+                    <li><a href="./team">Team</a></li>
+                    <li><a href="./analysis">Analysis</a></li>
+                    <li><a href="http://core.thorntontomasetti.com/aec-technology-symposium-2014/">AEC Hackathon</a></li>
                 </ul>
-            </div>
-        </div><!-- /.container-fluid -->
     </nav> <!--END NAV BAR-->
 
+    <div class="row-fluid header-row">
+        <div class="span12">
+            <h1>Team:</h1>
+        </div>
+    </div>
+    
+    <div id="blue-line-and-fade" class="row-fluid header-row">
+        <div class="span12">
+            <hr class='top-blue '>
+            <div class="below-header"></div>
+        </div>
+    </div>
 
 <div id="example" class="parcoords" style="height:400px;"></div>
+
 <div id="grid"></div>
 
 <script id="brushing">
-var parcoords = d3.parcoords()("#example")
-  .alpha(0.4)
-  .mode("queue") // progressive rendering
-
-// load json file and create the chart
-//d3.csv('./nutrients.csv', function(data) {
-d3.json("./cars.json", function (error, data) {
-    parcoords
-    .data(data)
-    .render()
-    .reorderable() 
-    .brushable();  
-
-  // create data table, row hover highlighting
-  var grid = d3.divgrid();
-  d3.select("#grid")
-    .datum(data.slice(0,20))
-    .call(grid)
-    .selectAll(".row")
-    .on({
-      "mouseover": function(d) { parcoords.highlight([d]) },
-      "mouseout": parcoords.unhighlight
-    });
-
-  // update data table on brush event
-  parcoords.on("brush", function(d) {
-    d3.select("#grid")
-      .datum(d.slice(0,10))
-      .call(grid)
-      .selectAll(".row")
-      .on({
-        "mouseover": function(d) { parcoords.highlight([d]) },
-        "mouseout": parcoords.unhighlight
+    var parcoords = d3.parcoords()("#example")
+      .alpha(0.4)
+      .mode("queue") // progressive rendering
+    
+    // load json file and create the chart
+    //d3.csv('./nutrients.csv', function(data) {
+    d3.json("./cars.json", function (error, data) {
+        parcoords
+        .data(data)
+        .render()
+        .reorderable() 
+        .brushable();  
+    
+      // create data table, row hover highlighting
+      var grid = d3.divgrid();
+      d3.select("#grid")
+        .datum(data.slice(0,20))
+        .call(grid)
+        .selectAll(".row")
+        .on({
+          "mouseover": function(d) { parcoords.highlight([d]) },
+          "mouseout": parcoords.unhighlight
+        });
+    
+      // update data table on brush event
+      parcoords.on("brush", function(d) {
+        d3.select("#grid")
+          .datum(d.slice(0,10))
+          .call(grid)
+          .selectAll(".row")
+          .on({
+            "mouseover": function(d) { parcoords.highlight([d]) },
+            "mouseout": parcoords.unhighlight
+          });
       });
-  });
-});
+    });
 </script>
 
 </div> <!-- /container -->
